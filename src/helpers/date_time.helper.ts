@@ -1,4 +1,4 @@
-import { randomNumber } from './number.helper';
+import { random } from './random.helper';
 
 /**
  * Generates a random date and time within the specified range.
@@ -19,7 +19,7 @@ export function randomDateTime(
     return '';
   }
 
-  const timestamp = randomNumber(minTimestamp, maxTimestamp);
+  const timestamp = random(minTimestamp, maxTimestamp);
   const dateTime = formatTimestamp(timestamp, format);
 
   return dateTime;

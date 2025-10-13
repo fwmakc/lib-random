@@ -1,6 +1,6 @@
 import { NAMES_RU_CONST } from '../constants/names_ru.const';
+import { random } from './random.helper';
 import { randomName } from './name.helper';
-import { randomNumber } from './number.helper';
 
 /**
  * Generates a random Russian name with a specified number of words.
@@ -9,7 +9,7 @@ import { randomNumber } from './number.helper';
  */
 export function randomNamesRu(words = 1): Array<string | number> {
   const { vowels, consonants, endings } = NAMES_RU_CONST;
-  const gender = randomNumber(0, 1);
+  const gender = random(0, 1);
   const result: Array<string | number> = [gender];
 
   let n = 0;

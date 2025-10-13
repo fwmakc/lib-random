@@ -1,4 +1,4 @@
-import { randomNumber } from './number.helper';
+import { random } from './random.helper';
 
 /**
  * Returns a random value from an array.
@@ -12,7 +12,7 @@ export function randomArrayValue(args: Array<any>): any {
 
   const options = typeof args[0] === 'object' ? args[0] : args;
 
-  const index = randomNumber(1, options.length) - 1;
+  const index = random(1, options.length) - 1;
 
   return options[index];
 }

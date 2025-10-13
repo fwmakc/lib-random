@@ -1,4 +1,4 @@
-import { randomNumber } from './number.helper';
+import { random } from './random.helper';
 
 /**
  * Generates a random string of specified length.
@@ -17,7 +17,7 @@ export function randomString(min: number, max = 0, string = ''): string {
   }
 
   if (min !== max) {
-    max = randomNumber(min, max);
+    max = random(min, max);
   }
 
   let result = '';

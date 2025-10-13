@@ -1,6 +1,6 @@
-import { randomNumber } from '../helpers/number.helper';
+import { random } from '../helpers/random.helper';
 
-describe('randomNumber', () => {
+describe('random', () => {
   const testCases = [
     {
       min: 0,
@@ -25,10 +25,10 @@ describe('randomNumber', () => {
   testCases.forEach(({ min, max, step }, index) => {
     for (let i = 1; i <= iterations; i++) {
       describe(`Генерируем число от ${min} до ${max} с шагом ${step}`, () => {
-        const random = randomNumber(min, max, step);
+        const randomValue = random(min, max, step);
 
-        it(`Генерация (${index + 1} из ${length}): ${random}`, () => {
-          expect(random).toBe(random);
+        it(`Генерация (${index + 1} из ${length}): ${randomValue}`, () => {
+          expect(randomValue).toBe(randomValue);
         });
       });
     }

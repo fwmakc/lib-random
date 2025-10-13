@@ -1,6 +1,6 @@
 import { NAMES_EN_CONST } from '../constants/names_en.const';
+import { random } from './random.helper';
 import { randomName } from './name.helper';
-import { randomNumber } from './number.helper';
 
 /**
  * Generates a random English name with a specified number of words.
@@ -11,7 +11,7 @@ export function randomNamesEn(words = 1): Array<string | number> {
   const { vowels, consonants } = NAMES_EN_CONST;
   const woman = NAMES_EN_CONST.endings[0];
   const families = NAMES_EN_CONST.endings[1];
-  const gender = randomNumber(0, 1);
+  const gender = random(0, 1);
   const result: Array<string | number> = [gender];
 
   while (words > 0) {
