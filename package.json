@@ -1,6 +1,6 @@
 {
   "name": "lib-random",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Simple node.js library for generate or select random values",
   "keywords": [
     "random",

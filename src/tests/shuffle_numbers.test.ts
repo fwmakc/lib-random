@@ -1,3 +1,4 @@
+import { generate } from '../helpers/generate.helper';
 import { shuffle } from '../helpers/shuffle.helper';
 
 describe('shuffle', () => {
@@ -23,7 +24,8 @@ describe('shuffle', () => {
   testCases.forEach(({ min, max, step }) => {
     for (let i = 1; i <= iterations; i++) {
       describe(`Генерируем числа от ${min} до ${max} с шагом ${step}`, () => {
-        const random = shuffle(min, max, step);
+        const numbers = generate(min, max, step);
+        const random = shuffle(numbers);
 
         it(`Перемешанный массив (${i} из ${iterations}): ${JSON.stringify(
           random,

@@ -7,7 +7,7 @@ import { random } from './random.helper';
  * @param {string} [format='YYYY-MM-DD HH:mm:ss'] - The output format for the date and time. Defaults to 'YYYY-MM-DD HH:mm:ss'.
  * @returns {string} - A random date and time string.
  */
-export function randomDateTime(
+export function randomDatetime(
   min: string,
   max: string,
   format = 'YYYY-MM-DD HH:mm:ss',
@@ -20,9 +20,9 @@ export function randomDateTime(
   }
 
   const timestamp = random(minTimestamp, maxTimestamp);
-  const dateTime = formatTimestamp(timestamp, format);
+  const datetime = formatTimestamp(timestamp, format);
 
-  return dateTime;
+  return datetime;
 }
 
 /**

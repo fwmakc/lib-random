@@ -1,4 +1,4 @@
-import { randomArrayShuffle } from '../helpers/array_shuffle.helper';
+import { shuffle } from '../helpers/shuffle.helper';
 
 describe('string shuffle', () => {
   const testCases = [
@@ -11,7 +11,7 @@ describe('string shuffle', () => {
   testCases.forEach((string) => {
     for (let i = 1; i <= iterations; i++) {
       describe(`Генерируем строку ${string}`, () => {
-        const random = randomArrayShuffle(string);
+        const random = shuffle(string);
 
         it(`Перемешанный массив (${i} из ${iterations}): ${JSON.stringify(
           random,

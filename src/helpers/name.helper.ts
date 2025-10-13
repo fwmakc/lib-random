@@ -41,12 +41,12 @@ export function randomName(options: IRandomName): string {
     `${vowels}${vowels}`.toLowerCase(),
     consonants.toLowerCase(),
   ];
-  let string = randomString(min, max, letters.join(''));
+  let sourceString = randomString(min, max, letters.join(''));
 
   normals?.forEach((num, index) => {
     const regexp = new RegExp(`[${letters[index]}]{${+num + 1},}`, 'igu');
-    string.match(regexp)?.forEach((n) => {
-      string = string.replace(n, n.substring(0, +num));
+    sourceString.match(regexp)?.forEach((n) => {
+      sourceString = sourceString.replace(n, n.substring(0, +num));
     });
   });
 
@@ -54,20 +54,25 @@ export function randomName(options: IRandomName): string {
     const regexp = `[${letters[index]}]{${+num + 1},}$`;
     const regexpMatch = new RegExp(regexp, 'iu');
     const regexpReplace = new RegExp(`(.*?)${regexp}`, 'iu');
-    string.match(regexpMatch)?.forEach((n) => {
-      string = string.replace(regexpReplace, `$1${n.substring(0, +num)}`);
+    sourceString.match(regexpMatch)?.forEach((n) => {
+      sourceString = sourceString.replace(
+        regexpReplace,
+        `$1${n.substring(0, +num)}`,
+      );
     });
   });
 
-  if (!string.match(new RegExp(`[${letters[0]}]+`, 'iu'))) {
-    string = `${string}${randomString(1, 1, letters[0])}`;
+  if (!sourceString.match(new RegExp(`[${letters[0]}]+`, 'iu'))) {
+    sourceString = `${sourceString}${randomString(1, 1, letters[0])}`;
   }
-  if (!string.match(new RegExp(`[${letters[1]}]+`, 'iu'))) {
-    string = `${string}${randomString(1, 1, letters[1])}`;
+  if (!sourceString.match(new RegExp(`[${letters[1]}]+`, 'iu'))) {
+    sourceString = `${sourceString}${randomString(1, 1, letters[1])}`;
   }
 
-  string = `${string.substring(0, 1).toUpperCase()}${string.substring(1)}`;
+  sourceString = `${sourceString
+    .substring(0, 1)
+    .toUpperCase()}${sourceString.substring(1)}`;
   const ending = endings && endings.length ? randomArrayValue(endings) : '';
 
-  return `${string}${ending}`;
+  return `${sourceString}${ending}`;
 }

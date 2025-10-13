@@ -7,7 +7,7 @@ import { random } from './random.helper';
  * @param {string} [string=''] - The character set from which to generate the random string. Defaults to all alphanumeric characters.
  * @returns {string} - A random string of specified length.
  */
-export function randomString(min: number, max = 0, string = ''): string {
+export function randomString(min: number, max = 0, sourceString = ''): string {
   if (min < 0) {
     min = 0;
   }
@@ -22,10 +22,10 @@ export function randomString(min: number, max = 0, string = ''): string {
 
   let result = '';
 
-  const { length } = string;
+  const { length } = sourceString;
 
   for (let i = 0; i < max; i++) {
-    result += string.charAt(Math.floor(Math.random() * length));
+    result += sourceString.charAt(Math.floor(Math.random() * length));
   }
 
   return result;

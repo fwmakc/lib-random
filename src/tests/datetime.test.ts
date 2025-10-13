@@ -1,6 +1,6 @@
-import { randomDateTime } from '../helpers/date_time.helper';
+import { randomDatetime } from '../helpers/datetime.helper';
 
-describe('randomDateTime', () => {
+describe('random datetime', () => {
   const testCases = [
     {
       min: '2000-01-01',
@@ -20,7 +20,7 @@ describe('randomDateTime', () => {
   testCases.forEach(({ min, max, format }, index) => {
     for (let i = 1; i <= iterations; i++) {
       describe(`Генерируем дату от ${min} до ${max}`, () => {
-        const random = randomDateTime(min, max, format);
+        const random = randomDatetime(min, max, format);
 
         it(`Генерация (${index + 1} из ${length}): ${random}`, () => {
           expect(random).toBe(random);
