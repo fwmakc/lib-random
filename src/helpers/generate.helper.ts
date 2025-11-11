@@ -6,15 +6,32 @@
  * @returns {Array<any>} - Generated array.
  */
 export function generate(min: number, max: number, step = 1): Array<number> {
+  if (min === max) {
+    return [min];
+  }
+
+  if (!step) {
+    return [min, max];
+  }
+
   if (min > max) {
     [min, max] = [max, min];
   }
 
   const array: Array<number> = [];
 
-  for (let i = min; i <= max; i += step) {
-    i = Math.round(i * 1e10) / 1e10;
-    array.push(i);
+  if (step > 0) {
+    for (let i = min; i <= max; i += step) {
+      i = Math.round(i * 1e10) / 1e10;
+      array.push(i);
+    }
+  }
+
+  if (step < 0) {
+    for (let i = max; i >= min; i += step) {
+      i = Math.round(i * 1e10) / 1e10;
+      array.push(i);
+    }
   }
 
   return array;

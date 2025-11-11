@@ -12,9 +12,11 @@ import { randomNamesRu } from './helpers/names_ru.helper';
 import { randomString } from './helpers/string.helper';
 import { shuffle } from './helpers/shuffle.helper';
 import { tester } from './helpers/tester.helper';
+import { generateString } from './helpers/generate_string.helper';
 
 export {
   generate,
+  generateString,
   random,
   randomArray,
   randomArrayValue,
